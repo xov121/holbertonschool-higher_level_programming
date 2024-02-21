@@ -68,3 +68,19 @@ class Base:
                 return [cls.create(**dct) for dct in list_dicts]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes objects from a CSV file."""
+        filename = f"{cls.__name__}.csv"
+        try:
+            with open(filename, 'r', newline='') as csvfile:
+                reader = csv.DictReader(csvfile)
+                dicts_list = [row for row in reader]
+                objs = []
+                for d in dicts_list:
+                    obj_data = {k: int(v) for k, v in d.items()}
+                    objs.append(cls.create(**obj_data))
+                return objs
+        except FileNotFoundError:
+            return []
