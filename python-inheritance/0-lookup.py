@@ -10,7 +10,7 @@ def lookup(obj):
         obj: The object to list attributes and methods for.
 
     Returns:
-        A list object containing the names of the ibject's attributes and
+        A list object containing the names of the object's attributes and
         methods.
     """
     return dir(obj)
