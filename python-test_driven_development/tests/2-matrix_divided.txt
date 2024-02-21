@@ -1,24 +1,47 @@
-import unittest
-
-class TestMatrixDivided(unittest.TestCase):
-    def test_matrix_division(self):
-        matrix = [
-            [1, 2, 3],
-            [4, 5, 6]
-        ]
-        self.assertEqual(matrix_divided(matrix, 2), [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]])
-
-    def test_non_number_divisor(self):
-        matrix = [[1, 2], [3, 4]]
-        with self.assertRaises(TypeError):
-            matrix_divided(matrix, "Holberton")
-
-    def test_division_by_zero(self):
-        matrix = [[1, 2], [3, 4]]
-        with self.assertRaises(ZeroDivisionError):
-            matrix_divided(matrix, 0)
-
-    # More tests can be added (e.g., wrong matrix format, rows of different sizes, etc.)
-
-if __name__ == "__main__":
-    unittest.main()
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer("one", 6)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(tres, 6)
+Traceback (most recent call last):
+    ...
+NameError: name 'tres' is not defined
+>>> add_integer(int("one"), 7)
+Traceback (most recent call last):
+    ...
+ValueError: invalid literal for int() with base 10: 'one'
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(float('inf'), 5)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(2, 4.6)
+6
